@@ -23,7 +23,7 @@ def downloader():
             link = YouTube(input("Enter the URL: \n>> "))
 
             # Choose download format
-            choose = input("Which format do you prefer: \n1. MP3\n2. MP4\n3. Help\n>> ")
+            choose = input("Which format do you prefer?: \n1. MP3\n2. MP4\n3. Help\n>> ")
 
             if choose == "1":
                 print("Extracting....")
