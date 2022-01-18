@@ -71,7 +71,6 @@ def downloader():
                     # Result of success
                     print("'" + link.title + "'" + " has been successfully downloaded.\n" + divider)
 
-                    flag = False
                 except pytube.exceptions.VideoUnavailable:
                     print("Download failed. The video is unavailable.")
                 finally:
@@ -79,10 +78,10 @@ def downloader():
 
             elif choose == "3":
                 print(divider)
-                print("MP3 = Music\nMP4 = Video\n\nThe downloaded files can be found under the 'Downloads' folder")
+                print("MP3 = Music\nMP4 = Video\n\nThe downloaded files can be found under the 'Downloads' folder.")
                 print(divider)
             else:
-                print("Invalid option.")
+                print("Invalid option.\n" + divider)
         except pytube.exceptions.RegexMatchError:
             print("The URL is invalid.\n" + divider)
 
