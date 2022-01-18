@@ -8,6 +8,8 @@ import os
     Username: Berkanktk
 '''
 
+divider = "*******************************************"
+
 
 def downloader():
     flag = True
@@ -43,15 +45,12 @@ def downloader():
                     os.rename(out_file, new_file)
 
                     # Result of success
-                    print("'" + link.title + "'" + " has been successfully downloaded." +
-                          "\n*******************************************")
+                    print("'" + link.title + "'" + " has been successfully downloaded.\n" + divider)
 
                 except FileExistsError:
-                    print("Download failed. File already exists." +
-                          "\n*******************************************")
+                    print("Download failed. File already exists.\n" + divider)
                 except pytube.exceptions.VideoUnavailable:
-                    print("Download failed. The video is unavailable." +
-                          "\n*******************************************")
+                    print("Download failed. The video is unavailable.\n" + divider)
                 finally:
                     anotherMedia()
 
@@ -70,8 +69,7 @@ def downloader():
                     print("Saving....")
 
                     # Result of success
-                    print("'" + link.title + "'" + " has been successfully downloaded." +
-                          "\n*******************************************")
+                    print("'" + link.title + "'" + " has been successfully downloaded.\n" + divider)
 
                     flag = False
                 except pytube.exceptions.VideoUnavailable:
@@ -80,14 +78,13 @@ def downloader():
                     anotherMedia()
 
             elif choose == "3":
-                print("*******************************************")
+                print(divider)
                 print("MP3 = Music\nMP4 = Video\n\nThe downloaded files can be found under the 'Downloads' folder")
-                print("*******************************************")
+                print(divider)
             else:
-                raise SystemExit
+                print("Invalid option.")
         except pytube.exceptions.RegexMatchError:
-            print("The URL is invalid." +
-                  "\n*******************************************")
+            print("The URL is invalid.\n" + divider)
 
 
 def anotherMedia():
