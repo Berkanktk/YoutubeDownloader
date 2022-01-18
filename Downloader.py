@@ -43,15 +43,15 @@ def downloader():
                     os.rename(out_file, new_file)
 
                     # Result of success
-                    print("'" + link.title + "'" + " has been successfully downloaded.")
-                    print("*******************************************")
+                    print("'" + link.title + "'" + " has been successfully downloaded." +
+                          "\n*******************************************")
 
                 except FileExistsError:
-                    print("Download failed. File already exists.")
-                    print("*******************************************")
+                    print("Download failed. File already exists." +
+                          "\n*******************************************")
                 except pytube.exceptions.VideoUnavailable:
-                    print("Download failed. The video is unavailable.")
-                    print("*******************************************")
+                    print("Download failed. The video is unavailable." +
+                          "\n*******************************************")
                 finally:
                     anotherMedia()
 
@@ -70,8 +70,8 @@ def downloader():
                     print("Saving....")
 
                     # Result of success
-                    print("'" + link.title + "'" + " has been successfully downloaded.")
-                    print("*******************************************")
+                    print("'" + link.title + "'" + " has been successfully downloaded." +
+                          "\n*******************************************")
 
                     flag = False
                 except pytube.exceptions.VideoUnavailable:
@@ -86,8 +86,8 @@ def downloader():
             else:
                 raise SystemExit
         except pytube.exceptions.RegexMatchError:
-            print("The URL is invalid.")
-            print("*******************************************")
+            print("The URL is invalid." +
+                  "\n*******************************************")
 
 
 def anotherMedia():
