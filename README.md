@@ -1,5 +1,5 @@
 # YoutubeDownloader
-A simple command line program for downloading and analyzing videoes files from YouTube.
+A simple command line program for downloading and analyzing videoes files from YouTube. Made for educational purposes only. Not for commercial use.
 
 ## Usage
 ### With Executable
