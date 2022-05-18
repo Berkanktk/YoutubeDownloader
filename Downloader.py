@@ -2,6 +2,8 @@ import pytube.exceptions
 from pytube import YouTube
 from pathlib import Path
 import os
+import pyfiglet
+from tabulate import tabulate
 
 '''
     Author: Berkan Kütük
@@ -23,7 +25,7 @@ def downloader():
             link = YouTube(input("Enter the URL: \n>> "))
 
             # Choose download format
-            choose = input("Which format do you prefer?: \n1. MP3\n2. MP4\n3. Help\n>> ")
+            choose = input("Choose an option: \n1. Download MP3\n2. Download MP4\n3. Analyze Video\n9. Help\n>> ")
 
             if choose == "1":
                 print("Extracting....")
@@ -77,6 +79,9 @@ def downloader():
                     anotherMedia()
 
             elif choose == "3":
+                print(analyzeVideo(link))
+
+            elif choose == "9":
                 print(divider)
                 print("MP3 = Music\nMP4 = Video\n\nThe downloaded files can be found under the 'Downloads' folder.")
                 print(divider)
@@ -95,6 +100,46 @@ def anotherMedia():
         raise SystemExit
 
 
+def analyzeVideo(link):
+    print("Fetching...")
+
+    table = [
+             ["Data", "Value"],
+             ["Title", link.title],
+             ["Length", link.length],
+             ["Total Views", link.views],
+             ["Rating", link.rating],
+             ["Author", link.author],
+             ["Publish Date", link.publish_date],
+             ["Age Restricted", link.age_restricted],
+             ["Available", link.check_availability()],
+             ["Video ID", link.video_id],
+             ["Channel ID", link.channel_id],
+             ["Channel URL", link.channel_url],
+             ["Thumbnail URL", link.thumbnail_url]
+             ]
+    print(divider)
+    print(tabulate(table, headers="firstrow"))
+    print(divider)
+
+    advanced = input("Do you wanna see the description, caption and keywords?[y/n]\n")
+
+    if advanced == "y":
+        print(divider, "Description", divider)
+        print(link.description)
+
+        print(divider, "Captions", divider)
+        print(link.captions)
+
+        print(divider, "Keywords", divider)
+        print(link.keywords)
+
+    return "**********" + divider*2
+
+
 if __name__ == '__main__':
+    result = pyfiglet.figlet_format("YTDownloader By @Berkanktk", font="slant")
+    print(result)
+
     downloader()
     anotherMedia()
