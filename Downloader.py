@@ -28,13 +28,13 @@ def downloader():
             choose = input("Choose an option: \n1. Download MP3\n2. Download MP4\n3. Analyze Video\n9. Help\n>> ")
 
             if choose == "1":
-                print("Extracting....")
+                print("Downloading....")
 
                 try:
                     # Extracting the audio only
                     video = link.streams.filter(only_audio=True).first()
 
-                    print("Downloading....")
+                    print("Extracting....")
 
                     # Downloading the file
                     out_file = video.download(output_path=destination)
@@ -57,13 +57,13 @@ def downloader():
                     anotherMedia()
 
             elif choose == "2":
-                print("Extracting....")
+                print("Downloading....")
 
                 try:
                     # Extracting the video in highest resolution
                     video = link.streams.get_highest_resolution()
 
-                    print("Downloading....")
+                    print("Extracting....")
 
                     # Downloading the video
                     video.download(destination)
